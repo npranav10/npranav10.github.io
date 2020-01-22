@@ -720,11 +720,20 @@ body, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .education_area .education_inner_area .education_item:nth-child(2) {
-  margin-top: 300px;
+  margin-top: 100px;
+}
+.education_area .education_inner_area .education_item:nth-child(3) {
+  margin-top: 100px;
+}
+.education_area .education_inner_area .education_item:nth-child(4) {
+  margin-top: 10px;
+}
+.education_area .education_inner_area .education_item:nth-child(5) {
+  margin-top: 50px;
 }
 
 .education_area .education_inner_area .education_item:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0px;margin-top: 40px;float: right;
 }
 
 .education_area .education_inner_area .education_item h6 {
