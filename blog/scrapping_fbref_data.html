@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Pranav's Blog</title>
-	<meta name="description" content="Not another ordinary Soccer Analytics Blog">
+	<meta name="description" content="This articles aims at scrapping dynamically generated data/tables from a website, when our veteran rvest just can't work on his own.">
 	<meta name="author" content="Pranav Nagarajan">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=sans-serif:400,300,600" rel="stylesheet" type="text/css">
@@ -83,7 +83,7 @@
 		width: 0%;
 		}
 		.content{
-			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 75% !important;
+			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 65% !important;
 			font-family:"PT Sans", Helvetica, Arial, sans-serif !important;
 			/* letter-spacing: 0.04rem !important; */
 		}
@@ -301,21 +301,31 @@
 		<h4 class="title"><u>FBref data at one click of a button</u></h4>
 		<div class="code">
 			getFBrefStats = function(url,id){
-  
+				<br>
 				require(RSelenium) <br>
 				require(dplyr) <br>
+				<br>
+				# Stopping any selenium if it already exists. <br>
+				# This check is usually needed when we use the function more than 1 time.<br>
+				<br>
+				t = system("docker ps",intern=TRUE)<br>
+				if(is.na(as.character(strsplit(t[2],split = " ")[[1]][1]))==FALSE)<br>
+				{<br>
+				  system(paste("docker stop ",as.character(strsplit(t[2],split = " ")[[1]][1]),sep=""))<br>
+				}<br>
+				<br>
 				# To avoid starting docker in Terminal  <br>
-				
+				<br>
 				system("docker run -d -p 4445:4444 selenium/standalone-chrome") <br>
 				Sys.sleep(3) <br>
 				remDr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
 												 port = 4445L,
 												 browserName = "chrome")
-				
+												 <br>
 				# Automating the scraping initiation considering that Page navigation might crash sometimes in <br>
 				# R Selenuium and we have to start the process again. Good to see that this while() logic  <br>
 				# works perfectly <br>
-				
+				<br>
 				while (TRUE) { <br>
 				  tryCatch({ <br>
 					#Entering our URL gets the browser to navigate to the page <br>
@@ -360,7 +370,7 @@
 		</div>
 		<img src="bundesliga_players_fbref_shooting.PNG" width="100%">
 		<div class="floatleft">
-		Full Time !<img src="https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-27-512.png" width="10%">
+		Full Time!<br> <img src="https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-27-512.png" width="10%" style="float: left;">
 		</div>
 
 	</div>
