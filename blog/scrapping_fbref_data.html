@@ -99,7 +99,17 @@
 		.floatright{
 			width: 40%;float: right;
 		}
-
+		table, th, td {
+		border: 1px solid black !important; 
+		border-collapse: collapse !important;
+		}
+		th, td {
+		padding: 2px 2px 2px 2px !important;
+		text-align: Center !important;
+		}
+		table#t01 {   
+		background-color: #f1f1c1 !important;
+		}
 	</style>
 
 </head>
@@ -397,11 +407,36 @@
 		</p>
 		<p>Also a shout-out to <a href="https://twitter.com/etmckinley">Eliot McKinley</a> for pushing me to write this article.</p>
 	</div>	
-
+	<table id="t01">
+		<tr>
+		  <th>Page Visits: </th>
+		  <th id="visitors">0  </th>
+		   </tr>
+		   <!-- <tr>
+			 <th><applause-button id="applause" color="#11807f" multiclap="true" class="clapped" style="width: 58px; height: 58px;"> </th>
+		  <th id="clap"> </th>
+		</tr> -->
+	  
+	  </table><br><br>
 <!-- div class="content" ends -->
 	</div> 
 
+
 </body>
+	  
+<script>
+	if (localStorage.pagecount)
+	 {
+	 localStorage.pagecount=Number(localStorage.pagecount) +1;
+	 }
+	else
+	 {
+	 localStorage.pagecount=1;
+	 }
+	// localStorage.clapcount = document.getElementsByClassName("count")[0].innerHTML;
+	document.getElementById("visitors").innerHTML = Number(localStorage.pagecount) + 1;
+	// document.getElementsByClassName("count")[0].innerHTML = localStorage.pagecount+1;
+	</script>
 
 <script>
 	// When the user scrolls the page, execute myFunction
