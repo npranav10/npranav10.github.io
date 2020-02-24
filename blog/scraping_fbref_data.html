@@ -353,11 +353,11 @@
 				require(RSelenium) <br>
 				require(dplyr) <br>
 				<br>
-				# Stopping any selenium if it already exists. <br>
-				# This check is usually needed when we use the function more than 1 time.<br>
-				<br>
+				# For some unspecified reason we are starting and stopping the docker container initailly.<br>
+				# Similar to heating the bike's engine before shifting the gears.<br>
+				system("docker run -d -p 4445:4444 selenium/standalone-chrome")<br>
 				t = system("docker ps",intern=TRUE)<br>
-				if(is.na(as.character(strsplit(t[2],split = " ")[[1]][1]))==FALSE)<br>
+				if(is.na(as.character(strsplit(t[2],split = " ")[[1]][1]))==FALSE) <br>
 				{<br>
 				  system(paste("docker stop ",as.character(strsplit(t[2],split = " ")[[1]][1]),sep=""))<br>
 				}<br>
