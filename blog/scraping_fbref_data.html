@@ -47,9 +47,6 @@
 		.supporting-img {
 		border: 0;width: 60%;
 		}
-		.row{
-			padding: 0 0 0 20px;
-		}
 		.nav {
 			background: #0F2E3D;
 			color: #FFFFFF;
@@ -159,9 +156,15 @@
 
 	<!-- Body -->
 	<div class="content">
+	<!-- >Disclaimer -->
+
+	<div class="code">
+		If you are planning to use method specifically to get data from a Sports Reference page, please go through the
+		 <a href="#disclaimer" style="color: blue;">Disclaimer</a><br>
+	</div>
 
 	<!-- >Pre-Match Conference -->
-
+	
 	<div class="row"> 			
 		<h4 class="title">Pre-Match Conference:</h4>
 		<p>
@@ -442,6 +445,51 @@
 		<p></p>
 		<p>Also a shout-out to <a href="https://twitter.com/etmckinley" target="blank">Eliot McKinley</a> for encouraging me to write this article.</p>
 	</div>	
+	<div class="row">
+		<h4 class="title">Reference:</h4>
+		<a href="https://callumgwtaylor.github.io/blog/2018/02/01/using-rselenium-and-docker-to-webscrape-in-r-using-the-who-snake-database" target="blank" >
+			Callum Taylor : Using RSelenium and Docker To Webscrape In R - Using The WHO Snake Database</a> <br>
+		Apart from borrowing few snippets from the above piece, I did manage to bring in some automation into the procedure to gather data.<br>
+		If you feel, there is also another way to achieve this, don't hesitate to contact me.
+	</div>
+	<hr>
+	<div class="row" id="disclaimer">
+		<h4 class="title" style="color: red;">Disclaimer:</h4>
+		<p>		Sports Reference LLC says : "Except as specifically provided in this paragraph, you agree not to use or launch any automated system, 
+			including without limitation, robots, spiders, offline readers, or like devices, that accesses the Site in a manner which sends more request 
+			messages to the Site server in any given period of time than a typical human would normally produce in the same period by using a conventional 
+			on-line Web browser to read, view, and submit materials."
+		</p>
+		<ul style="list-style-type: disc;">
+			<li>
+				I would like to re-iterate that in this procedure, the time taken to fetch data from any SRef website is same as someone copying it from a browser,
+				because of the way RSelenium works.
+			</li>
+			<li>
+				Also the function to get such data was made to help people who prefer to get the data in click of a button rather than:
+				<ol>
+					<li>
+						Opening a page
+					</li>
+					<li>
+						Scrolling through for a table
+					</li>
+					<li>
+						Clicking "Share & More"
+					</li>
+					<li>
+						Choosing "Get Table as CSV" and Downloading it.
+					</li>
+					<li>
+						And then loading csv file in R
+					</li>
+				</ol>
+			</li>
+			<li>
+				If you are a Sports Reference official and you would like me to avoid using FBref as an example, kindly message me.
+			</li>
+		</ul>
+	</div>
 
 <!-- div class="content" ends -->
 	</div> 
