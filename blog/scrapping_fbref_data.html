@@ -244,7 +244,9 @@
 			<li>
 				Install RSelenium in RStudio as follows:
 				<code>install.packages("RSelenium")</code>
-					
+			</li>	
+			<li>
+				Execute the following code in RStudio's Console unless stated otherwise.
 			</li>			
 		</ul>
 		Now with all dependancies installed, let's get into the action <br>
@@ -252,11 +254,17 @@
 			<li>
 				Start <code>Docker for Desktop</code> in your OS. (It really takes time to load. Watch Haaland's goals meanwhile.)
 			</li>	
+			<div class="floatright">
+				<center><img src="terminal.png" style="width: 50%; display: block;">
+				</center>
+				</div>
 			<li>
-				Run the following code in RStudio's Terminal (not Console) as follows:
-			<code>docker run -d -p 4445:4444 selenium/standalone-chrome</code>
-			The de facto way of knowing the success status is by running <code>docker ps</code> on which you will get the container id of selenium as output
+				Run the following code in RStudio's <strong>Terminal (not Console)</strong>:
+			<code>docker run -d -p 4445:4444 selenium/standalone-chrome</code><br>
+			The de facto way of knowing the success status is by running <code>docker ps</code> on which you will get the container id of selenium as output.<br>
+			If Terminal is not visible in your panes, then use <code>ALT + SHIFT + R</code> to open it.<br>
 			</li>
+
 			<li>
 				Remember the anonymous browser that I mentioned earlier? We are about to invoke him now:
 				<div class="row">
