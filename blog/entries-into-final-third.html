@@ -291,7 +291,8 @@
 	<!-- Analysing a match (Part 1/3): -->
 
 	<div class="row"> 
-		<h4 class="title"><u>Analysing a match (Part 1/2):</u></h4>
+		<h4 class="title"><u>Match Analysis:</u></h4>
+		<h5 class="title"><u>Match Analysis (Match 1/3):</u></h5>
 
 		<div class="row">
 			The following plot focusses on the match Manchester City WFC vs Everton LFC during the FA Women's Super League 2018/2019.
@@ -314,7 +315,7 @@
 	<!-- Analysing a match (Part 2/3): -->
 
 	<div class="row"> 
-		<h4 class="title"><u>Analysing a match (Part 2/2):</u></h4>
+		<h5 class="title"><u>Match Analysis (Match 2/3):</u></h5>
 		<div class="row">
 		Another interesting case is England vs Panama in 2018 FIFA World Cup.
 		With Panama playing with a narrower low block, England were forced to attack from the wings.
@@ -333,47 +334,21 @@
 					did a good job in keeping Panama at bay. 
 				</p>
 			</div>
-			<img src="./entries-into-final-third/tfa_englandvspanama.png" style="width: 95%">
+			<img src="./entries-into-final-third/tfa_englandvspanama.png" style="width: 70%; display: block;">
 			<!-- <center>Taken from TotalFootballAnalysis</center> -->
 		</div>
 	</div>	
 
 	<!-- Analysing a match (Part 3/3): -->
 
-	<!-- <div class="row"> 
-		<h4 class="title"><u>Analysing a match (Part 3/3):</u></h4>
-		<div class="row">
-		Match: Spain vs Morocco in 2018 FIFA World Cup.
-		</div>
-		<div class="row"> 
-			<img src="./entries-into-final-third/spainvsmorocco.png" style="width: 95%">
-
-			<strong><u>Supporting reports taken from TotalFootballAnalysis:</u></strong><br>
-			<div class="floatleft">
-				<img src="./entries-into-final-third/tfa_spainvsmorocco.png" style="width: 95%">
-				<p>Morocco defenders preferring to initiate sequences on the flanks.
-				</p>
-			</div>
-			<div class="floatright">
-
-				<img src="./entries-into-final-third/tfa_spainvsmorocco2.PNG" style="width:95%">
-				<p>Hakim Ziyech and Achraf Hakimi had the best chemistry. Their linkups helped Morocco
-					achieve more success on the LW. Though the RW group received the ball more often than LW
-					yet they produced a output of lesser quality.
-				</p>
-			</div>
-		</div>
-	</div>	 -->
-	<hr id="teamanalysis">
-
-	<!-- Team Analysis: -->
 	<div class="row"> 
-		<h4 class="title"><u>Team Analysis:</u></h4>
+		<h5 class="title"><u>Match Analysis (Match 3/3):</u></h5>
 		<div class="row">
-			Morocco 
+			Morocco vs Spain (Group Stage - 2018 FIFA World Cup).
+			 87% of the Morocco's progression towards the goal took place on the wings, with more success on the left. 
 		</div>
 		<div class="row"> 
-			<img src="./entries-into-final-third/spainvsmorocco.png" style="width: 95%">
+			<img src="./entries-into-final-third/spainvsmorocco.png" style="width: 60%; display: block;">
 
 			<div class="floatleft">
 				<img src="./entries-into-final-third/tfa_spainvsmorocco.png" style="width: 95%">
@@ -390,13 +365,34 @@
 			</div>
 		</div>
 	</div>	
-</div>
+
+
+	<hr id="teamanalysis">
 
 	<!-- Team Analysis: -->
+	<div class="row"> 
+		<h4 class="title"><u>Team Analysis:</u></h4>
+		<div class="row">
+				Let's take a look at the tournament perfomance of the World Cup Final's MOTM Antione Griezmann. On the whole he played
+				as a CAM for most of the matches, but shifted to Right Striker when France played 4-4-2 while defending. Hence the 
+				account for high stats on the right.
+		</div>
+		<div class="row"> 
+			<img src="./entries-into-final-third/portugal.png" style="width: 60%;display: block;">
+		</div>
+
+	</div>	
+
+
+	<!-- player Analysis: -->
 	<hr id="playeranalysis">
 
 	<div class="row"> 
-		<h4 class="title"><u>Player Analysis:</u></h4>
+		<h4 class="title"><u>Player Analysis:</u></h5>
+
+		<h5 class="title"><u>Player Analysis (1/2):</u></h5>
+	
+
 		<div class="row">
 				Let's take a look at the tournament perfomance of the World Cup Final's MOTM Antione Griezmann. On the whole he played
 				as a CAM for most of the matches, but shifted to Right Striker when France played 4-4-2 while defending. Hence the 
@@ -405,13 +401,22 @@
 		<div class="row"> 
 			<img src="./entries-into-final-third/griezz.png" style="width: 60%;display: block;">
 		</div>
+		<h5 class="title"><u>Player Analysis (2/2):</u></h5>
+
+		<div class="row">
+				It's not shocking to see that Rashford was deployed on the wings because Kane was the playing the target man role.
+				
+		</div>
+		<div class="row"> 
+			<img src="./entries-into-final-third/marcusrashord.png" style="width: 60%;display: block;">
+		</div>
 			<hr id="rshinyapp">
 		<h4 class="title">R Shiny Application:</h4>
 		<p>I have also built a Shiny Application using which you can see the entries' stats for both home and away teams
 			cooked using event data of StatsBomb's publicly available 799 matches.
 		</p>
 	</div>	
-	</div>
+</div>
 	<center>
 	<iframe src="http://127.0.0.1:4165/" width="80%" height="750px"></iframe>
 	</center>
@@ -570,9 +575,11 @@
 		<code>
 			<strong>Please  <a href="https://statsbomb.com/resource-centre/">register yourself and agree to the terms</a> 
 			before using StatsBomb data.</strong>
-		</code><br><br>
-		<a href="https://github.com/npranav10" target="blank" style="color: #1da1f2;">R Function to plot flank attacks viz using StatsBomb data</a>
-		<br><p>This function besides plotting the data, also returns a dataframe. Let's examine what's in it.</p>
+		</code><br><br>Code to plot flank attacks viz using StatsBomb data is available in
+		<a href="https://github.com/npranav10/entries-into-final-third" target="blank" style="color: #1da1f2;">
+			 this GitHub repository.</a>
+			 This function besides plotting the data, also returns a dataframe. Let's examine what's in it.
+			 <br><br>
 
 	<div class="floatleft60">
 
