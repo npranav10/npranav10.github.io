@@ -1,0 +1,656 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Pranav's Blog</title>
+	<meta name="description" content="Quantifying a team's attacking prowess in the Final 3rd by using just 3 arrows of different colours and lengths.">
+	<meta name="author" content="Pranav Nagarajan">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Flank Attacks Visualisation using StatsBomb Open-Data | @npranav10">
+	<meta property="og:description" content="Translating a team's attacking prowess in Final 3rd, into just 3 arrows of different colours and lengths.">
+	<meta property="og:url" content="https://npranav10.github.io/blog/entries-into-final-third.html">
+	<meta property="og:site_name" content="Pranav's Blog">
+	<meta property="article:publisher" content="https://npranav10.github.io/">
+	<meta property="article:section" content="Main">
+	<meta property="article:published_time" content="2020-03-29T06:30:00+00:00">
+	<meta property="og:image" content="https://github.com/npranav10/npranav10.github.io/tree/master/blog/entries-into-final-third/portugal.png">
+	<meta property="og:image:secure_url" content="https://github.com/npranav10/npranav10.github.io/tree/master/blog/entries-into-final-third/portugal.png">
+	<meta property="og:image:width" content="1230">
+	<meta property="og:image:height" content="860">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:description" content="Quantifying a team's attacking prowess in the Final 3rd by using just 3 arrows of different colours and lengths.">
+	<meta name="twitter:title" content="Flank Attacks Visualisation using StatsBomb Open-Data | @npranav10">
+	<meta name="twitter:site" content="@npranav10">
+	<meta name="twitter:image" content="https://github.com/npranav10/npranav10.github.io/tree/master/blog/entries-into-final-third/portugal.png">
+	<meta name="twitter:creator" content="@npranav10">
+	
+	
+	
+	<link href="https://fonts.googleapis.com/css?family=sans-serif:400,300,600" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../blog/css/normalize.css">
+	<link rel="stylesheet" href="../blog/css/skeleton.css">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		table {
+ 	 width:100%;
+	}
+	table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	}
+	th, td {
+	padding: 05px 10px 05px 05px;
+	text-align: center;
+	}
+	table#t01 tr:nth-child(even) {
+	background-color: #eee;
+	}
+	table#t01 tr:nth-child(odd) {
+	background-color: #fff;
+	}
+	table#t01 th {
+	background-color: rgba(0, 0, 0, 0.65);
+	color: white;
+	}
+		img {
+		/* margin: 100px; */
+		transition: transform 0.25s ease;
+		/* display: block; */
+		cursor: zoom-in;border: 1px solid black !important;margin: 20px auto;text-align: center;
+		}
+		img:hover {
+		transform: scale(1.4);
+		cursor: zoom-out;
+		}
+		.supporting-img {
+		border: 0;width: 60%;
+		}
+		.nav {
+			background: #0F2E3D;
+			color: #FFFFFF;
+		}
+		.nav a {
+			color: inherit;
+			text-decoration: inherit;
+		}
+		.article-card {
+			padding:10px;
+			border-radius:10px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			margin:30px auto;
+		}
+		.thumb img {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;width:100%;
+		}
+		.title {
+			font-weight: bold; text-decoration: underline;
+		}
+		a, a:hover {
+			color:inherit;
+		}
+		.article-card {
+			-webkit-transition: background 0.5s; /* Safari */
+		  transition: background 0.5s;
+		}
+		.article-card:hover {
+			background: #f1f6ff;
+		}
+		.header {
+		position: fixed;
+		top: 0;
+		z-index: 1;
+		width: 100%;
+		height: 50px;
+		background-color: #0F2E3D;
+		}
+
+		.header h5 {
+		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 30;
+		}
+
+		.progress-container {
+		width: 100%;
+		height: 8px;
+		background:rgb(204, 52, 25);
+		}
+		.progress-bar {
+		height: 8px;
+		background: rgb(130, 235, 130);
+		width: 0%;
+		}
+		.content{
+			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 65% !important;
+			font-family:"PT Sans", Helvetica, Arial, sans-serif !important;
+			/* letter-spacing: 0.04rem !important; */
+		}
+		.code {
+		padding: 10px 10px 10px 10px;
+		margin: 10px 10px 10px 10px;
+		font-family: monospace;
+		font-size: large !important;
+		background-color: #f1f1f1;
+		word-wrap: anywhere;
+		}
+		body{
+			font-family:"PT Sans", Helvetica, Arial, sans-serif !important; color: #515151;
+		}
+		.floatleft{
+			width: 50%;float: left;
+		}
+		.floatright{
+			width: 50%;float: right;
+		}
+		.floatleft60{
+			width: 60%;float: left;
+		}
+		.floatright40{
+			width: 40%;float: right;
+		}
+		code {
+	padding: .2rem .5rem;
+	margin: 0 .2rem;
+	font-size: 90%;
+	white-space: nowrap;
+	background: #F1F1F1;
+	border: 1px solid #E1E1E1;
+	border-radius: 4px;
+	white-space: inherit;
+}
+	</style>
+
+</head>
+
+<body>
+	<!-- Header  -->
+	<div class="nav container u-full-width u-max-full-width">
+		<div class="header">
+			<div class="row">
+				<div class="column" style="height: 50px;">
+					<!-- <a href="https://npranav10.github.io" target="_blank"><h5 style="margin-top:1.2rem;">Check out my Portfolio</h5></a> -->
+					<h5>"Flank Attacks Visualisation" Using StatsBomb Open Data</h5>
+				</div>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar" id="myBar" style="width: 0%;"></div>
+			  </div>
+		</div>
+	</div>
+
+	<!-- Body -->
+	<div class="content">
+
+	<!-- >Sections in this page: -->
+
+	<div class="row">
+		<h4 class="title">Sections in this page:</h4>
+		<ol>
+			<div class="floatleft">
+			<li><a href="#prematchconf" style="color: blue;">Pre-Match Conference (Introduction)</a></li>
+			<li><a href="#breakingdowntheviz" style="color: blue;">Breaking down the "Flank attacks"</a></li>
+			<li><a href="#matchanalysis" style="color: blue;">Match-Wise Analysis</a></li>
+			<li><a href="#teamanalysis" style="color: blue;">Team Analysis</a></li>
+			</div>
+			<div class="floatright">
+			<li><a href="#playeranalysis" style="color: blue;">Player Analysis</a></li>
+			<li><a href="#rshinyapp" style="color: blue;">Interactive R Shiny Application</a></li>
+			<li><a href="#code" style="color: blue;">Creating the viz using StatsBomb data</a></li>
+			<li><a href="#postmatchconf" style="color: blue;">Post-Match Conference (Inference)</a></li>
+			
+		</ol>
+	</div>
+	<hr id="">
+	<!-- >Pre-Match Conference -->
+	<hr id="prematchconf">
+
+	<div class="row"> 			
+		<h4 class="title">Pre-Match Conference:</h4>
+		<p></p>
+			<ul style="list-style-type:square;">
+				<li>A lot of analysis has been done to study the quality of the opposing team in its attacking half / attacking final 3rd.
+				The de-facto metrics used are touches, passes, take-ons all per zone stats and are eventually visualized as 
+				zonemaps [1] .
+				Sometimes events like carries of a particular player are shown on a event map. [2]</li>
+				<!-- <li>A lot of analysis has been done to study the quality of the opposing team in its attacking half / attacking final 3rd.</li>
+				<li>The de-facto metrics used are touches,passes,take-ons per zone and eventually are visualized as heatmap. [1]</li>
+				<li>Sometimes events like carries and passes of a particular player are shown on a event map. [2] </li> -->
+					<div class="row"> 
+						<div class="floatleft">
+							<img src="entries-into-final-third/pre_saul.png" style="width: 95%; display: block; ">
+							<center><p>[1] : <a href="https://www.skysports.com/football/news/11667/11965758/
+								saul-niguez-manchester-united-linked-with-atletico-madrid-star">
+							SkySports report on Saul Niguez</a></p></center>
+						</div>
+						<div class="floatright">
+
+							<img src="entries-into-final-third/pre_robo.png" style="width:90%; display: block;">
+							<center><p>[2] : <a href="https://twitter.com/petermckeever/status/1197508257159495680">Andy Robertson
+							progressive carry map</a></p></center>
+						</div>
+					</div>
+				<li>But on a different note, if we are able to figure out on which width of the attacking third,
+					the team was most productive, it will be more easier to digest the required information specifically during 
+					match by match analysis, than looking at individual heatmaps or eventsmap. </li>
+				<li>Hence, in this article we'll be looking to quantify a team's attacking prowess based on their "entries into 
+					final third" taking into account of the attempts of passes,carries,take-ons into each width of the attacking third
+					( i.e Left Wind, Center, Right Wing.) and their corresponding success percentage.</li>
+				<li>This whole concept was inspired by Mark Thompson & his team's work on the same topic 
+					<a href="https://www.twenty3.sport/what-is-a-flank-attacks-visualisation/" style="color: blue;" target="blank">
+						What is a Flank Attacks visualisation?</a>  and my work is a mere replica of theirs', besides encourging the 
+						readers to appreciate this viz and showing how to build such a viz using StatsBomb Open Data.</li>
+				<li>Spoiler Alert : I am not a nerdy analyst (I like to be the farmer cultivating rice in a paddy field rather than 
+					be the end-user cooking it in a pressure cooker), but I 
+					am happy to test my analytical and explanotory skills here. </li>
+
+
+			</ul>
+		<p></p>
+	</div>	
+
+	<hr id="breakingdowntheviz">
+
+	<!-- Breaking down the "Flank attacks -->
+	<div class="row"> 
+		<h4 class="title">Breaking down the "Flank attacks"</h4>
+		<p> Imagine a toll collection area being place on the 66.6th percentile of pitch's length with 3 toll booths counting number of 
+			ball entries crossing the border(66.6% mark) similar to counting vehicle movements crossing the toll booth. In a similar manner we 
+			arrive at the numbers by counting passes and carries started before the border and ending after the border. Passes/Carries starting and 
+			ending in the final 3rd are not counted for instance.<br><br>
+			The following plot showcases Belgium's final 3rd entries in the 2018 FIFA World Cup Semi-Final vs France.
+			Belgium were active 60% of the time at their Right Wing and it was also their most succesful attacking zone in the final 3rd.  </p>
+
+		<img src="./entries-into-final-third/wing_best.png" style="width:75%; display: block;">
+		<table id="t01" style="width:95%" align="center">
+			<tr>
+			  <th>Aspect</th>
+			  <th>Corresponds To</th>
+			</tr>
+			<tr>
+			  <td>Arrow Height</td>
+			  <td>Avg Depth of all attempted entries</td>
+			</tr>
+			<tr>
+			  <td>Arrow Color</td>
+			  <td>Scale of the color represents the success % of the attempted entries. Darker is the best. </td>
+			</tr>
+			<tr>
+				<td>Numbers in %</td>
+				<td>Success Percentage of all attempted entries.</td>
+			</tr>
+		  </table> 
+		
+	</div>
+	<hr id="matchanalysis">
+
+	<!-- Match-Wise Analysis -->
+
+	<!-- Analysing a match (Part 1/3): -->
+
+	<div class="row"> 
+		<h4 class="title"><u>Analysing a match (Part 1/3):</u></h4>
+
+		<div class="row">
+			The following plot focusses on the match Manchester City WFC vs Everton LFC during the FA Women's Super League 2018/2019.
+			Both teams recorded only 16-18% of entries in the middle of the pitch.
+		</div>
+		<div class="row"> 
+			<div class="floatleft">
+				<img src="./entries-into-final-third/left_deep_success.png" style="width: 95%">
+				<p>City Women's depth was consistent but failed to make more out of their entries in the Right Flank.</p>
+			</div>
+			<div class="floatright">
+
+				<img src="./entries-into-final-third/right_deep_success.png" style="width:95%">
+				<p>Everton Ladies' attempted more entries on the left but it had the least depth and success % among all 3 zones.</p>
+			</div>
+		</div>
+
+	</div>	
+
+	<!-- Analysing a match (Part 2/3): -->
+
+	<div class="row"> 
+		<h4 class="title"><u>Analysing a match (Part 2/3):</u></h4>
+		<div class="row">
+		Another interesting case is England vs Panama in 2018 FIFA World Cup.
+		With Panama playing with a narrower low block, England were forced to attack from the wings.
+		</div>
+		<div class="row"> 
+			<div class="floatleft">
+				<img src="./entries-into-final-third/englandvspanama.png" style="width: 95%">
+				<p>England made use of their flanks 80% of the time, when they entered into final 3rd. This picture 
+					illustrated below (report from TotalFootballAnalysis) clealy supports the data.
+				</p>
+			</div>
+			<div class="floatright">
+
+				<img src="./entries-into-final-third/panamavsengland.png" style="width:95%">
+				<p>Panama's picture tells exactly you what it is to play against a 3-5-2 setup. England's packed midfield
+					did a good job in keeping Panama at bay. 
+				</p>
+			</div>
+			<img src="./entries-into-final-third/tfa_englandvspanama.png" style="width: 95%">
+			<!-- <center>Taken from TotalFootballAnalysis</center> -->
+		</div>
+	</div>	
+
+	<!-- Analysing a match (Part 3/3): -->
+
+	<!-- <div class="row"> 
+		<h4 class="title"><u>Analysing a match (Part 3/3):</u></h4>
+		<div class="row">
+		Match: Spain vs Morocco in 2018 FIFA World Cup.
+		</div>
+		<div class="row"> 
+			<img src="./entries-into-final-third/spainvsmorocco.png" style="width: 95%">
+
+			<strong><u>Supporting reports taken from TotalFootballAnalysis:</u></strong><br>
+			<div class="floatleft">
+				<img src="./entries-into-final-third/tfa_spainvsmorocco.png" style="width: 95%">
+				<p>Morocco defenders preferring to initiate sequences on the flanks.
+				</p>
+			</div>
+			<div class="floatright">
+
+				<img src="./entries-into-final-third/tfa_spainvsmorocco2.PNG" style="width:95%">
+				<p>Hakim Ziyech and Achraf Hakimi had the best chemistry. Their linkups helped Morocco
+					achieve more success on the LW. Though the RW group received the ball more often than LW
+					yet they produced a output of lesser quality.
+				</p>
+			</div>
+		</div>
+	</div>	 -->
+	<hr id="teamanalysis">
+
+	<!-- Team Analysis: -->
+
+	<div class="row"> 
+		<h4 class="title"><u>Team Analysis:</u></h4>
+		<div class="row">
+			Let's say you are the new manager of a relatively new Women's team making debut in FAWSL.
+			So how do you get to know your next opponent?  
+		</div>
+		<div class="row"> 
+			<img src="./entries-into-final-third/spainvsmorocco.png" style="width: 95%">
+
+			<div class="floatleft">
+				<img src="./entries-into-final-third/tfa_spainvsmorocco.png" style="width: 95%">
+				<p>Morocco defenders preferring to initiate sequences on the flanks.
+				</p>
+			</div>
+			<div class="floatright">
+
+				<img src="./entries-into-final-third/tfa_spainvsmorocco2.PNG" style="width:95%">
+				<p>Hakim Ziyech and Achraf Hakimi had the best chemistry. Their linkups helped Morocco
+					achieve more success on the LW. Though the RW group received the ball more often than LW
+					yet they produced a output of lesser quality.
+				</p>
+			</div>
+		</div>
+			<hr id="rshinyapp">
+		<h4 class="title">R Shiny Application:</h4>
+	</div>	
+</div>
+	<center>
+	<iframe src="http://127.0.0.1:4165/" width="80%" height="750px"></iframe>
+	</center>
+
+	<div class="content">
+
+	<!-- Code -->
+	<!-- <div class="row">
+		<hr id="code">
+
+		<h4 class="title"><u>Code:</u></h4>
+		<u>R Function to plot flank attacks viz using StatsBomb data</u>
+		<div class="code">
+
+			statsbomb_flank_attack = function(matchData,team_name,sub_title){<br>
+				require(dplyr)				<br>
+				require(ggplot2)				<br>
+				`%notin%` <- Negate(`%in%`)				<br>
+				# Selecting all attempted carries, passes and excluding injury-clearance-passes (fairplay).				<br>
+				matchData = dplyr::filter(matchData,type.name %in% c("Carry","Pass") & type.id %notin% c(74))				<br>
+				data <- NULL				<br>
+				for (i in c(1:(nrow(matchData)))) {				<br>
+					if(matchData$type.name[i]=="Carry")				<br>
+					{				<br>
+						start_x = sapply(matchData$location[i],function(x) x[][1])				<br>
+						start_y = sapply(matchData$location[i],function(x) x[][2])				<br>
+						end_x = sapply(matchData$carry.end_location[i],function(x) x[][1])				<br>
+						end_y = sapply(matchData$carry.end_location[i],function(x) x[][2])				<br>
+						outcome = "Complete"				<br>
+						team = matchData$possession_team.name[i]				<br>
+						data = rbind(data,data.frame(team,type="Carry",start_x,start_y,outcome,end_x,end_y))				<br>
+					}				<br>
+					else if(matchData$type.name[i]=="Pass")				<br>
+					{				<br>
+						start_x = sapply(matchData$location[i],function(x) x[][1])				<br>
+						start_y = sapply(matchData$location[i],function(x) x[][2])				<br>
+						end_x = sapply(matchData$pass.end_location[i],function(x) x[][1])				<br>
+						end_y = sapply(matchData$pass.end_location[i],function(x) x[][2])				<br>
+						outcome = ifelse(is.na(matchData$pass.outcome.name[i])==TRUE,"Complete",matchData$pass.outcome.name[i])				<br>
+						team = matchData$possession_team.name[i]				<br>
+						data = rbind(data,data.frame(team,type="Pass",start_x,start_y,outcome,end_x,end_y))				<br>
+					}				<br>
+				}				<br>
+				# labelling origin zones				<br>
+				data$origin[(data$start_x<79.2 & (data$start_y<=26.4))]="left"
+				data$origin[(data$start_x<79.2 & (data$start_y>26.4 & data$start_y<=52.8))]="center"				<br>
+				data$origin[(data$start_x<79.2 & (data$start_y>52.8))]="right"				<br>
+				data$origin = as.factor(data$origin)				<br>
+				# labelling final third zones				<br>
+				data$entry[(data$end_x>=79.2 & (data$end_y<=26.4))]="left"				<br>
+				data$entry[(data$end_x>=79.2 & (data$end_y>26.4 & data$end_y<=52.8))]="center"				<br>
+				data$entry[(data$end_x>=79.2 & (data$end_y>52.8))]="right"				<br>
+				data$entry = as.factor(data$entry)				<br>
+				data = dplyr::filter(data,outcome %notin% c("Injury Clearance") )				<br>
+				data$origin <- factor(data$origin, levels = c("left", "center", "right"))				<br>
+				data$entry <- factor(data$entry, levels = c("left", "center", "right"))				<br>
+				# finding  attempted entries into the final 3rd.				<br>
+				temp = filter(data,team == team_name) %>% na.omit(cols= entry,origin)				<br>
+				att = temp %>% select(entry) %>% table()				<br>
+				att_entry_depth = mutate(temp,`entry_depth`=				<br>
+											 round(sqrt(((79.2-end_x)/120*105)**2+((start_y-end_y)/80*68)**2),1)) %>%				<br>
+					select(entry,entry_depth) %>%				<br>
+					group_by(entry) %>%				<br>
+					summarise("att_entry_depth" = round(mean(entry_depth),0)) %>%				<br>
+					as.data.frame() %>% select(att_entry_depth) %>% t()				<br>
+				att_distribution_pct = round(att/sum(att)*100,1) %>% round(0)				<br>
+				# finding successful entries into the final 3rd.				<br>
+				temp = filter(data,team == team_name & outcome=="Complete") %>% na.omit(cols= entry,origin)				<br>
+				suc = temp %>% select(entry) %>% table()				<br>
+				suc_entry_depth = mutate(temp,`entry_depth`=				<br>
+											 round(sqrt(((79.2-end_x)/120*105)**2+((start_y-end_y)/80*68)**2),1)) %>%				<br>
+					select(entry,entry_depth) %>%				<br>
+					group_by(entry) %>%				<br>
+					summarise("suc_entry_depth" = round(mean(entry_depth),0)) %>%				<br>
+					as.data.frame() %>% select(suc_entry_depth) %>% t()				<br>
+				suc_pct = round(suc/(att)*100,1) %>% round(0)				<br>
+				data = rbind(att,att_distribution_pct,att_entry_depth,suc,suc_pct,suc_entry_depth) %>%				<br>
+					as.data.frame()				<br>
+				# Plotting the flank attacks viz.				<br>
+				pitch_line_color = "black"				<br>
+				title_color = "black"				<br>
+				viz_color = "black"				<br>
+				ggplot() +				<br>
+					labs(title = paste(team_name,"- Entries into Final 3rd"),				<br>
+						 subtitle = sub_title)+				<br>
+					coord_flip() +				<br>
+					geom_rect(aes(xmin = 100, xmax = 100.2, ymin = 44.2, ymax = 55.8), fill = pitch_line_color, colour =pitch_line_color , size = 0.5) +				<br>
+					geom_rect(aes(xmin = 50, xmax = 100, ymin = 0, ymax = 100), fill = NA, colour = pitch_line_color, size = 0.5) +				<br>
+					geom_rect(aes(xmin = 83, xmax = 100, ymin = 21, ymax = 79), fill = NA, colour = pitch_line_color, size = 0.5) +				<br>
+					geom_rect(aes(xmin = 100, xmax = 94, ymin = 36.8, ymax = 63.2), fill = NA, colour = pitch_line_color, size = 0.5) +				<br>
+					#geom_point(aes(x=50,y=50), colour = viz_color,lwd=2)  +geom_point(aes(x=88.5,y=50), colour = viz_color,lwd=2)+				<br>
+					# right D box arc				<br>
+					#geom_curve(aes(x = 83, y = 40, xend = 83, yend = 60, colour = "curve"), colour = viz_color, size = 0.5,ncp = 1000)+				<br>
+					# centre Kickoff circle
+					#geom_curve(aes(x = 50, y = 36.8, xend = 50, yend = 63.2, colour = "curve"),curvature = 1,colour = viz_color, size = 0.5,ncp = 1000)+				<br>
+					#geom_curve(aes(x = 50, y = 63.2, xend = 50, yend = 36.8, colour = "curve"),curvature = 1, colour = viz_color, size = 0.5,ncp = 1000)+				<br>
+					theme(panel.grid.major = element_blank(),				<br>
+						  panel.grid.minor = element_blank(),				<br>
+						  panel.background = element_rect(fill = "#f9f9fa"),				<br>
+						  axis.title.y = element_blank(),				<br>
+						  axis.ticks.y = element_blank(),				<br>
+						  axis.ticks.x = element_blank(),				<br>
+						  axis.text.x = element_blank(),				<br>
+						  axis.text.y = element_blank(),				<br>
+						  plot.background = element_rect(fill = "#f9f9fa"),				<br>
+						  plot.title = element_text(colour = title_color,				<br>
+													size = 26, face ="bold", hjust = 0.5),				<br>
+						  plot.subtitle = element_text(colour = title_color,				<br>
+													   size = 12, hjust = 0.5),				<br>
+						  axis.title.x = element_blank(),				<br>
+						  legend.position = "none",				<br>
+						  legend.background = element_blank(),				<br>
+						  legend.text = element_blank(),				<br>
+						  legend.key = element_blank(),				<br>
+						  legend.title = element_blank(),				<br>
+						  text=element_text(size=16)) +				<br>
+					geom_segment(aes(x=60,				<br>
+									 xend=66.7+data$left[3]-5,				<br>
+									 y=20,				<br>
+									 yend=20),				<br>
+								 size=10,color = alpha(viz_color,data$left[5]/100))+				<br>
+					geom_segment(aes(x=60,				<br>
+									 xend=66.7+data$center[3]-5,				<br>
+									 yend=50),	<br>
+								 size=10, color = alpha(viz_color,data$center[5]/100))+	<br>
+					geom_segment(aes(x=60,	<br>
+									 xend=66.7+data$right[3]-5,	<br>
+									 y=80,	<br>
+									 yend=80),	<br>
+								 size=10, color = alpha(viz_color,data$right[5]/100))+	<br>
+					geom_polygon(aes(c(66.7+data$left[3]-5,66.7+data$left[3],66.7+data$left[3]-5), c(15,20,25)),	<br>
+								 fill = alpha(viz_color,data$left[5]/100))+	<br>
+					geom_polygon(aes(c(66.7+data$center[3]-5,66.7+data$center[3],66.7+data$center[3]-5), c(45,50,55)),	<br>
+								 fill = alpha(viz_color,data$center[5]/100))+	<br>
+					geom_polygon(aes(c(66.7+data$right[3]-5,66.7+data$right[3],66.7+data$right[3]-5), c(75,80,85)),	<br>
+								 fill = alpha(viz_color,data$right[5]/100))+	<br>
+					geom_text(aes(55,20,label = paste(data$left[2],"%",sep = "")),color=viz_color,size=10) +	<br>
+					geom_text(aes(55,50,label = paste(data$center[2],"%",sep = "")),color=viz_color,size=10) +	<br>
+					geom_text(aes(55,80,label = paste(data$right[2],"%",sep = "")),color=viz_color,size=10)+	<br>
+					annotation_custom(grid::rasterGrob(png::readPNG("./statsbomb.png")	<br>
+													   , interpolate = TRUE)	<br>
+									  , xmin = 45, xmax = 50, ymin = 80, ymax = 100)+	<br>
+					geom_text(aes(48,10,label = paste("@npranav10")),color=viz_color,size=8)	<br>
+			}	<br>
+			<br>
+
+		</div>
+	</div> -->
+
+	<div class="row">
+		<hr id="code">
+
+
+		<h4 class="title"><u>Code:</u></h4>
+
+		<code>
+			<strong>Please  <a href="https://statsbomb.com/resource-centre/">register yourself and agree to the terms</a> 
+			before using StatsBomb data.</strong>
+		</code><br><br>
+		<a href="https://github.com/npranav10" target="blank" style="color: #1da1f2;">R Function to plot flank attacks viz using StatsBomb data</a>
+		<br><p>This function besides plotting the data, also returns a dataframe. Let's examine what's in it.</p>
+
+	<div class="floatleft60">
+
+			<table id="t01" style="width:100%" align="center">
+				<tr>
+					<th>Metric</th>
+					<th>Value</th>
+				  </tr>
+				<tr>
+				  <td>att</td>
+				  <td>Total Attempts</td>
+				</tr>
+				<tr>
+				  <td>att_distribution_pct   </td>
+				  <td>Distribution of attempts according to zones</td>
+				</tr>
+				<tr>
+				  <td>att_entry_depth        </td>
+				  <td>Average depth of all attempted entries </td>
+				</tr>
+				<tr>
+					<td>suc</td>
+					<td>Succesful attempts</td>
+				  </tr>
+				  <tr>
+					<td>suc_pct   </td>
+					<td>Success % of entries. SuccessfulAttempts/TotalAttempts in each zone</td>
+				  </tr>
+				  <tr>
+					<td>suc_entry_depth        </td>
+					<td>Average depth of all successful entries </td>
+				</tr>
+
+			  </table> 
+		</div>
+		<div class="floatright40">
+			<br>
+			<img src="./entries-into-final-third/proof2.png" style="width:95%; float: right; ">
+			<div class="content">This dataframe corresponds to the Belgium's entries-into-final-third vs France.</div>
+		</div>
+	
+	
+	</div>
+
+
+	<hr id="postmatchconf">
+	<!-- >Post-Match Conference -->
+
+	<div class="row"> 			
+		<h4 class="title">Post-Match Conference:</h4>
+		<p>
+			</p><ul style="list-style-type:square;">
+			<li>One of the key take-aways from this article is that we can make use of the Flank attacks viz to
+				summarise the team's attacking prowess.
+			</li>
+			<li>The other side of the coin - We must not limit ourselves to just using this particular viz. Instead we can use it
+				as a filter to analyse large sets of matches, and then probably video analysts can select the intended matches 
+				according to their needs.
+			</li>
+			<li>
+				Currently, the "entries" consider only passes, dribbles and take-ons with success % and depth in metres. 
+				In future we can fitler each event and add more info like pass angle and passes per sequence etc.
+			</li>
+		</ul> 
+			 For more details, feel free to reach me at <a href="https://twitter.com/npranav10" target="blank">@npranav10</a>
+				<a href="https://twitter.com/npranav10" class="fa fa-twitter" target="blank" style=" color: #1da1f2;
+				font-size: 30px;
+				width: 50px;
+				text-align: center;
+				text-decoration: none;
+				margin: 5px 2px;"></a>
+		<p></p>
+		<p>Also a shout-out to <a href="https://twitter.com/EveryTeam_Mark" target="blank">Mark Thompson</a> for giving me 
+			a thumbsup to proceed with this concept which his team at Twenty3 sport initally tested on.</p>
+	</div>	
+	
+	<hr>
+	
+
+<!-- div class="content" ends -->
+	</div> 
+
+
+
+	  
+<script>
+	// When the user scrolls the page, execute myFunction
+	window.onscroll = function() {myFunction()};
+	
+	function myFunction() {
+	  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+	  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+	  var scrolled = (winScroll / height) * 100;
+	  document.getElementById("myBar").style.width = scrolled + "%";
+	} 
+</script>
+
+</body></html>
