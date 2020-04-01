@@ -18,12 +18,12 @@
 	<meta property="og:image:height" content="683">
 	<meta property="article:publisher" content="https://npranav10.github.io/">
 	<meta property="article:section" content="Main">
-	<meta property="article:published_time" content="2020-03-29T06:30:00+00:00">
+	<meta property="article:published_time" content="2020-03-31T06:30:00+00:00">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:description" content="Quantifying a team's attacking prowess in the Final 3rd by using just 3 arrows of different colours and lengths.">
 	<meta name="twitter:title" content="Flank Attacks Visualisation using StatsBomb Open-Data | @npranav10">
 	<meta name="twitter:site" content="@npranav10">
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/npranav10/npranav10.github.io/master/blog/entries-into-final-third/portugal.png">
+	<meta name="twitter:image" content="http://raw.githubusercontent.com/npranav10/npranav10.github.io/master/blog/entries-into-final-third/portugal.png">
 	<meta name="twitter:creator" content="@npranav10">
 	
 	
@@ -222,13 +222,13 @@
 						<div class="floatleft">
 							<img src="entries-into-final-third/pre_saul.png" style="width: 95%; display: block; ">
 							<center><p>[1] : <a href="https://www.skysports.com/football/news/11667/11965758/
-								saul-niguez-manchester-united-linked-with-atletico-madrid-star">
+								saul-niguez-manchester-united-linked-with-atletico-madrid-star" target="_blank">
 							SkySports report on Saul Niguez</a></p></center>
 						</div>
 						<div class="floatright">
 
 							<img src="entries-into-final-third/pre_robo.png" style="width:90%; display: block;">
-							<center><p>[2] : <a href="https://twitter.com/petermckeever/status/1197508257159495680">Andy Robertson
+							<center><p>[2] : <a href="https://twitter.com/petermckeever/status/1197508257159495680" target="_blank">Andy Robertson
 							progressive carry map</a></p></center>
 						</div>
 					</div>
@@ -239,7 +239,7 @@
 					final third" taking into account of the attempts of passes,carries,take-ons into each width of the attacking third
 					( i.e Left Wind, Center, Right Wing.) and their corresponding success percentage.</li>
 				<li>This whole concept was inspired by Mark Thompson & his team's work on the same topic 
-					<a href="https://www.twenty3.sport/what-is-a-flank-attacks-visualisation/" style="color: blue;" target="blank">
+					<a href="https://www.twenty3.sport/what-is-a-flank-attacks-visualisation/" style="color: blue;" target="_blank">
 						What is a Flank Attacks visualisation?</a>  and my work is a mere replica of theirs', besides encourging the 
 						readers to appreciate this viz and showing how to build such a viz using StatsBomb Open Data.</li>
 				<li>Spoiler Alert : I am not a nerdy analyst (I like to be the farmer cultivating rice in a paddy field rather than 
@@ -335,7 +335,7 @@
 				</p>
 			</div>
 			<img src="./entries-into-final-third/tfa_englandvspanama.png" style="width: 70%; display: block;">
-			<center><p> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-england-vs-panama">
+			<center><p> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-england-vs-panama" target="_blank">
 			Pic Taken from Match Report by Total Football Analysis</a></p></center>		</div>
 	</div>	
 
@@ -364,7 +364,7 @@
 				</p>
 			</div>
 		</div>
-		<center><p> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-spain-vs-morocco-tactical-analysis">
+		<center><p> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-spain-vs-morocco-tactical-analysis" target="_blank">
 			Pic Taken from Match Report by Total Football Analysis</a></p></center>		
 		</div>
 
@@ -420,6 +420,13 @@
 			publicly available 799 matches. (P.S: The app runs out of memory in shinyapps.io and I ran out of free-tier in AWS.
 			So I am working hard to bring it live to you.)
 		</p>
+		<div class="code">
+			# Load the shiny package <br>
+library(shiny)<br>
+<br>
+# Use runGitHub to soft download the app and run it in your local computer.<br>
+shiny::runGitHub("entries-into-final-third", "npranav10")
+		</div>
 		<img src="./entries-into-final-third/rshinyapp.png" style="width: 100%;display: block;">
 	</div>	
 <!-- </div>
@@ -651,14 +658,14 @@
 			</li>
 		</ul> 
 			 For more details, feel free to reach me at <a href="https://twitter.com/npranav10" target="blank">@npranav10</a>
-				<a href="https://twitter.com/npranav10" class="fa fa-twitter" target="blank" style=" color: #1da1f2;
+				<a href="https://twitter.com/npranav10" class="fa fa-twitter" target="_blank" style=" color: #1da1f2;
 				font-size: 30px;
 				width: 50px;
 				text-align: center;
 				text-decoration: none;
 				margin: 5px 2px;"></a>
 		<p></p>
-		<p>Also a shout-out to <a href="https://twitter.com/EveryTeam_Mark" target="blank">Mark Thompson</a> for giving me 
+		<p>Also a shout-out to <a href="https://twitter.com/EveryTeam_Mark" target="_blank">Mark Thompson</a> for giving me 
 			a thumbsup to proceed with this concept which his team at Twenty3 sport initally tested on.</p>
 	</div>	
 	
