@@ -29,24 +29,39 @@
 	
 	
 	
-	<link href="https://fonts.googleapis.com/css?family=sans-serif:400,300,600" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="../blog/css/normalize.css">
 	<link rel="stylesheet" href="../blog/css/skeleton.css">
 	<link href="../css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
-		img {
-		/* margin: 100px; */
-		transition: transform 0.25s ease;display: block;
-		cursor: zoom-in;border: 1px solid black !important;margin: 20px auto;text-align: center;
-		}
-		img:hover {
-		transform: scale(1.7);
-		cursor: zoom-out;
-		}
-		.supporting-img {
-		border: 0;width: 60%;
-		}
+			ol {
+	list-style: decimal !important;
+}
+	
+	table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	}
+	th, td {
+	padding: 05px 10px 05px 05px;
+	text-align: center;
+	}
+	table#t01 tr:nth-child(even) {
+	background-color: #eee;
+	}
+	table#t01 tr:nth-child(odd) {
+	background-color: #fff;
+	}
+	table#t01 th {
+	background-color: rgba(0, 0, 0, 0.65);
+	color: white;
+	}
+	.caption{
+		font-size: 14px !important;
+		color:blueviolet; text-align: center; padding: 5px 5px 5px 5px;
+	}
+
 		.nav {
 			background: #0F2E3D;
 			color: #FFFFFF;
@@ -61,13 +76,13 @@
 			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			margin:30px auto;
 		}
-		.thumb img {
+		/* .thumb img {
 			  display: block;
 			  margin-left: auto;
 			  margin-right: auto;width:100%;
-		}
+		} */
 		.title {
-			font-weight: bold; text-decoration: underline;
+			font-weight: bold; text-decoration: underline; font-size: 24px !important;
 		}
 		a, a:hover {
 			color:inherit;
@@ -89,7 +104,7 @@
 		}
 
 		.header h5 {
-		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 30;
+		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 20px !important;color:white !important;
 		}
 
 		.progress-container {
@@ -102,11 +117,7 @@
 		background: rgb(130, 235, 130);
 		width: 0%;
 		}
-		.content{
-			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 65% !important;
-			font-family:"PT Sans", Helvetica, Arial, sans-serif !important;
-			/* letter-spacing: 0.04rem !important; */
-		}
+
 		.code {
 		padding: 10px 10px 10px 10px;
 		margin: 10px 10px 10px 10px;
@@ -116,14 +127,75 @@
 		word-wrap: anywhere;
 		}
 		body{
-			font-family:"PT Sans", Helvetica, Arial, sans-serif !important; color: #515151;
+			font-family:'Open Sans', sans-serif !important; color: black !important;
+			/* color: #515151; */
 		}
-		.floatleft{
-			width: 60%;float: left;
+		.content{
+			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 80% !important;
+			color: black !important;font-size: 18px !important;
+			text-align: justify;
+			/* font-family:"PT Sans", Helvetica, Arial, sans-serif !important; */
+			/* letter-spacing: 0.04rem !important; */
+		}
+		.update {
+	background: yellow;
+	padding: 10px 10px 10px 10px;
+	animation-duration: 1s;
+        animation-iteration-count: 5s;
+}
+		/* For devices larger than 400px */
+@media (min-width: 1000px) {
+	.header h5 {
+		text-align: center;padding-left: 5%;padding-top: 5px;font-size: 26px !important;color:white !important;
+		}
+	.floatleft{
+			width: 50%;float: left;
 		}
 		.floatright{
+			width: 50%;float: right;
+		}
+		.floatleft60{
+			width: 60%;float: left;
+		}
+		.floatright40{
 			width: 40%;float: right;
 		}
+		table {
+ 	 width:100%; 
+	}
+		img {
+		/* margin: 100px; */
+		transition: transform 0.25s ease;width:70% ; display: block;
+		/* display: block; */
+		cursor: zoom-in;border: 1px solid black !important;margin: 20px auto;text-align: center;
+		}
+		img:hover {
+		transform: scale(1.4);
+		cursor: zoom-out;
+		}
+		.content{
+			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 65% !important;
+			color: black !important;font-size: 18px !important;
+			/* font-family:"PT Sans", Helvetica, Arial, sans-serif !important; */
+			/* letter-spacing: 0.04rem !important; */
+		}
+}
+.bounce-1 {
+        animation-name: bounce-1;
+        animation-timing-function: linear;
+    }
+    @keyframes bounce-1 {
+        0%   { transform: translateX(-50px); }
+        50%  { transform: translateX(50px); }
+        100% { transform: translateX(0); }
+    }
+	img {
+		/* margin: 100px; */
+		transition: transform 0.25s ease;width:90%; display: block;
+		/* display: block; */
+		border: 1px solid black !important;margin: 20px auto;text-align: center;
+		}
+		.floatleft img ,.floatright img {width:95%; }
 		code {
 	padding: .2rem .5rem;
 	margin: 0 .2rem;
@@ -145,7 +217,7 @@
 			<div class="row">
 				<div class="column" style="height: 50px;">
 					<!-- <a href="https://npranav10.github.io" target="_blank"><h5 style="margin-top:1.2rem;">Check out my Portfolio</h5></a> -->
-					<h5>Scraping  Data from FBref using RSelenium and Docker Desktop (A Complete Package)</h5>
+					<h5>Scraping Data from FBref</h5>
 				</div>
 			</div>
 			<div class="progress-container">
@@ -158,6 +230,10 @@
 	<div class="content">
 	<!-- >Disclaimer -->
 
+	<div class="update bounce-1"> 
+		Check out my latest version of scraping helper (replaced Selenium with a more robust and faster solution i.e an API)
+		 at <a href="https://github.com/npranav10/acciotables" style="color: blue;" target="_blank">github.com/npranav10/acciotables</a>
+	</div>
 	<div class="code">
 		If you are planning to make use of the following procedure to scrap data from a Sports Reference page, please go through the
 		 <a href="#disclaimer" style="color: blue;">Disclaimer</a><br>
@@ -201,7 +277,7 @@
 								or a id name (say #stats_shooting) associated with it</li>
 							
 							<center>
-								<img class="supporting-img" src="./scraping-fbref-data/trad_tableid.png"> 
+								<img src="./scraping-fbref-data/trad_tableid.png"> 
 						</center>
 						<li> The corresponding table id here is "#stats_passing_squads"</li>
 
@@ -215,7 +291,7 @@
 									<li> At that instant, if you perform a left click, the marker turns red with the id of the table appearing
 										on the SelectorGadget toolbar on your screen. </li>
 								<center>
-									<img class="supporting-img" src="./scraping-fbref-data/selectorgadget.png"> 
+									<img src="./scraping-fbref-data/selectorgadget.png"> 
 								</center>
 							<li> The corresponding table id here is "#stats_keeper_squads"</li>
 						</ol>
@@ -234,7 +310,7 @@
 							stats_passing_squads = stats_passing_squads[[1]]
 						</div>
 						<center>
-								<img class="supporting-img" src="./scraping-fbref-data/scrap_trad_way.png" style="width: 50%;">  
+								<img src="./scraping-fbref-data/scrap_trad_way.png" >  
 						</center>	
 					</li>
 				</ol>
@@ -251,7 +327,7 @@
 						<b>I managed to capture the way the tables load.</b>
 					</li>
 					<div class="row">	
-				<img class="supporting-img" style="width: 40%;" src="./scraping-fbref-data/fbref_dyn-tab-gen.png">
+				<img  src="./scraping-fbref-data/fbref_dyn-tab-gen.png">
 	</div><li>
 						Notice how the 1st table loads quickly and how the reminder are taking their time to load.
 					</li>
@@ -270,7 +346,7 @@
 		<p>
 			So when we try to scrap such tables, this happens :
 		</p>
-			<img class="supporting-img" src="./scraping-fbref-data/empty_list.png" style="width: 80% !important;">
+			<img src="./scraping-fbref-data/empty_list.png">
 	</div>
 
 	<hr>
@@ -332,7 +408,7 @@
 			If Terminal is not visible in your panes, then use <code>ALT + SHIFT + R</code> to open it.<br>
 			</li>
 			<div class="row">
-				<center><img src="./scraping-fbref-data/terminal.png" style="width: 30%; display: block;">
+				<center><img src="./scraping-fbref-data/terminal.png" style="width: 20%; !important">
 				</center>
 				</div>
 			<li>
@@ -347,7 +423,7 @@
 				</div>
 				</div>
 				<div class="row">
-				<center><img src="./scraping-fbref-data/remDr_screenshot.png" style="width: 40%; display: block;">
+				<center><img src="./scraping-fbref-data/remDr_screenshot.png" >
 					<p>
 						Magnifique !
 					</p></center>
@@ -361,7 +437,7 @@
 					stats_passing_squads = xml2::read_html(remDr$getPageSource()[[1]]) %&gt;% rvest::html_nodes("#stats_passing_squads") %&gt;% rvest::html_table() <br>
 					stats_passing_squads = stats_passing_squads[[1]] 
 				</div>
-				<center><img src="./scraping-fbref-data/scrape_success.png" style="width: 80%; display: block;">
+				<center><img src="./scraping-fbref-data/scrape_success.png" >
 					<p>
 						Großartig !
 					</p></center>
@@ -445,9 +521,9 @@
 			bundesliga_players_fbref_shooting = getFBrefStats("https://fbref.com/en/comps/20/shooting/Bundesliga-Stats","#stats_shooting") <br>
 			head(bundesliga_players_fbref_shooting)
 		</div>
-		<img src="https://raw.githubusercontent.com/npranav10/npranav10.github.io/master/blog/scraping-fbref-data/bundesliga_players_fbref_shooting.png" width="100%">
+		<img src="https://raw.githubusercontent.com/npranav10/npranav10.github.io/master/blog/scraping-fbref-data/bundesliga_players_fbref_shooting.png">
 		<div class="floatleft">
-		Full Time!<br> <img src="https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-27-512.png" style="float: left;" width="10%">
+		Full Time!<br> <img src="https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-27-512.png" style="float: left; width:10% !important">
 		</div>
 
 	</div>
