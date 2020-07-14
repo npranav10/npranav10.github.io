@@ -37,9 +37,7 @@
 		ol {
 	list-style: decimal !important;
 }
-		table {
- 	 width:100%;
-	}
+	
 	table, th, td {
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -108,7 +106,7 @@
 		}
 
 		.header h5 {
-		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 22px !important;color:white !important;
+		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 16px !important;color:white !important;
 		}
 
 		.progress-container {
@@ -158,6 +156,9 @@
 		.floatright40{
 			width: 40%;float: right;
 		}
+		table {
+ 	 width:100%;
+	}
 		img {
 		/* margin: 100px; */
 		transition: transform 0.25s ease;width:90%; display: block;
@@ -514,44 +515,13 @@ shiny::runGitHub("entries-into-final-third", "npranav10")
 
 			</div>
 			<p>This function plots the data and also returns a dataframe. Let's examine what's in it.</p>
-	<div class="floatleft60">
-
-			<table id="t01" >
-				<tr>
-					<th>Metric</th>
-					<th>Value</th>
-				  </tr>
-				<tr>
-				  <td>att</td>
-				  <td>Total attempts</td>
-				</tr>
-				<tr>
-				  <td>att_distribution_pct   </td>
-				  <td>Distribution of attempts according to zones</td>
-				</tr>
-				<tr>
-				  <td>att_entry_depth        </td>
-				  <td>Average depth of all attempted entries </td>
-				</tr>
-				<tr>
-					<td>suc</td>
-					<td>Succesful attempts</td>
-				  </tr>
-				  <tr>
-					<td>suc_pct   </td>
-					<td>Success % of entries. (SuccessfulAttempts/TotalAttempts in each zone)</td>
-				  </tr>
-				  <tr>
-					<td>suc_entry_depth        </td>
-					<td>Average depth of all successful entries </td>
-				</tr>
-
-			  </table> 
+	<div class="floatleft">
+		<img src="./entries-into-final-third/returndf.png" style="border: none !important;" >
 		</div>
-		<div class="floatright40">
+		<div class="floatright">
 			<br>
 			<img src="./entries-into-final-third/proof2.png" >
-			<div class="content">This dataframe corresponds to the Belgium's entries-into-final-third vs France.</div>
+			<p class="caption">This dataframe corresponds to the Belgium's entries-into-final-third vs France.</p>
 		</div>
 	
 	
