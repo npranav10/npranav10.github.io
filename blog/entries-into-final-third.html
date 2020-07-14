@@ -28,12 +28,15 @@
 	
 	
 	
-	<link href="https://fonts.googleapis.com/css?family=sans-serif:400,300,600" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="../blog/css/normalize.css">
 	<link rel="stylesheet" href="../blog/css/skeleton.css">
 	<link href="../css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
+		ol {
+	list-style: decimal !important;
+}
 		table {
  	 width:100%;
 	}
@@ -55,16 +58,11 @@
 	background-color: rgba(0, 0, 0, 0.65);
 	color: white;
 	}
-		img {
-		/* margin: 100px; */
-		transition: transform 0.25s ease;
-		/* display: block; */
-		cursor: zoom-in;border: 1px solid black !important;margin: 20px auto;text-align: center;
-		}
-		img:hover {
-		transform: scale(1.4);
-		cursor: zoom-out;
-		}
+	.caption{
+		font-size: 14px !important;
+		color:blueviolet; text-align: center; padding: 5px 5px 5px 5px;
+	}
+
 		.supporting-img {
 		border: 0;width: 60%;
 		}
@@ -88,7 +86,7 @@
 			  margin-right: auto;width:100%;
 		}
 		.title {
-			font-weight: bold; text-decoration: underline;
+			font-weight: bold; text-decoration: underline; font-size: 24px !important;
 		}
 		a, a:hover {
 			color:inherit;
@@ -110,7 +108,7 @@
 		}
 
 		.header h5 {
-		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 30;
+		text-align: center;padding-left: 5%;padding-top: 10px;font-size: 22px !important;color:white !important;
 		}
 
 		.progress-container {
@@ -123,11 +121,7 @@
 		background: rgb(130, 235, 130);
 		width: 0%;
 		}
-		.content{
-			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 65% !important;
-			font-family:"PT Sans", Helvetica, Arial, sans-serif !important;
-			/* letter-spacing: 0.04rem !important; */
-		}
+
 		.code {
 		padding: 10px 10px 10px 10px;
 		margin: 10px 10px 10px 10px;
@@ -137,9 +131,22 @@
 		word-wrap: anywhere;
 		}
 		body{
-			font-family:"PT Sans", Helvetica, Arial, sans-serif !important; color: #515151;
+			font-family:'Open Sans', sans-serif !important; color: black !important;
+			/* color: #515151; */
 		}
-		.floatleft{
+		.content{
+			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 80% !important;
+			color: black !important;font-size: 16px !important;
+			text-align: justify;
+			/* font-family:"PT Sans", Helvetica, Arial, sans-serif !important; */
+			/* letter-spacing: 0.04rem !important; */
+		}
+		/* For devices larger than 400px */
+@media (min-width: 700px) {
+	.header h5 {
+		text-align: center;padding-left: 5%;padding-top: 5px;font-size: 26px !important;color:white !important;
+		}
+	.floatleft{
 			width: 50%;float: left;
 		}
 		.floatright{
@@ -151,6 +158,30 @@
 		.floatright40{
 			width: 40%;float: right;
 		}
+		img {
+		/* margin: 100px; */
+		transition: transform 0.25s ease;width:90%; display: block;
+		/* display: block; */
+		cursor: zoom-in;border: 1px solid black !important;margin: 20px auto;text-align: center;
+		}
+		img:hover {
+		transform: scale(1.4);
+		cursor: zoom-out;
+		}
+		.content{
+			padding: 50px 50px 50px 50px;margin: 50px auto 0 auto;width: 70% !important;
+			color: black !important;font-size: 18px !important;
+			/* font-family:"PT Sans", Helvetica, Arial, sans-serif !important; */
+			/* letter-spacing: 0.04rem !important; */
+		}
+}
+	img {
+		/* margin: 100px; */
+		transition: transform 0.25s ease;width:60%; display: block;
+		/* display: block; */
+		border: 1px solid black !important;margin: 20px auto;text-align: center;
+		}
+		.floatleft img ,.floatright img {width:95%; }
 		code {
 	padding: .2rem .5rem;
 	margin: 0 .2rem;
@@ -167,7 +198,7 @@
 
 <body>
 	<!-- Header  -->
-	<div class="nav container u-full-width u-max-full-width">
+	<!-- <div class="nav container u-full-width u-max-full-width"> -->
 		<div class="header">
 			<div class="row">
 				<div class="column" style="height: 50px;">
@@ -176,10 +207,10 @@
 				</div>
 			</div>
 			<div class="progress-container">
-				<div class="progress-bar" id="myBar" style="width: 0%;"></div>
+				<div class="progress-bar" id="myBar" ></div>
 			  </div>
 		</div>
-	</div>
+	<!-- </div> -->
 
 	<!-- Body -->
 	<div class="content">
@@ -203,7 +234,6 @@
 			
 		</ol>
 	</div>
-	<hr id="">
 	<!-- >Pre-Match Conference -->
 	<hr id="prematchconf">
 
@@ -220,15 +250,15 @@
 				<li>Sometimes events like carries and passes of a particular player are shown on a event map. [2] </li> -->
 					<div class="row"> 
 						<div class="floatleft">
-							<img src="entries-into-final-third/pre_saul.png" style="width: 95%; display: block; ">
-							<center><p>[1] : <a href="https://www.skysports.com/football/news/11667/11965758/
+							<img src="entries-into-final-third/pre_saul.png" >
+							<center><p class="caption">[1] : <a href="https://www.skysports.com/football/news/11667/11965758/
 								saul-niguez-manchester-united-linked-with-atletico-madrid-star" target="_blank">
 							SkySports report on Saul Niguez</a></p></center>
 						</div>
 						<div class="floatright">
 
-							<img src="entries-into-final-third/pre_robo.png" style="width:90%; display: block;">
-							<center><p>[2] : <a href="https://twitter.com/petermckeever/status/1197508257159495680" target="_blank">Andy Robertson
+							<img src="entries-into-final-third/pre_robo.png" >
+							<center><p class="caption">[2] : <a href="https://twitter.com/petermckeever/status/1197508257159495680" target="_blank">Andy Robertson
 							progressive carry map</a></p></center>
 						</div>
 					</div>
@@ -263,8 +293,8 @@
 			The following plot showcases Belgium's final 3rd entries in the 2018 FIFA World Cup Semi-Final vs France.
 			Belgium were active 60% of the time at their Right Wing and it was also their most succesful attacking zone in the final 3rd.  </p>
 
-		<img src="./entries-into-final-third/wing_best.png" style="width:75%; display: block;">
-		<table id="t01" style="width:95%" align="center">
+		<img src="./entries-into-final-third/wing_best.png" >
+		<table id="t01">
 			<tr>
 			  <th>Aspect</th>
 			  <th>Corresponds To</th>
@@ -300,13 +330,13 @@
 		</div>
 		<div class="row"> 
 			<div class="floatleft">
-				<img src="./entries-into-final-third/left_deep_success.png" style="width: 95%">
-				<p style="width: 90%;">City Women's depth was consistent but failed to make more out of their entries in the Right Flank.</p>
+				<img src="./entries-into-final-third/left_deep_success.png" >
+				<p class="caption" >City Women's depth was consistent but failed to make more out of their entries in the Right Flank.</p>
 			</div>
 			<div class="floatright">
 
-				<img src="./entries-into-final-third/right_deep_success.png" style="width:95%">
-				<p style="width: 90%;">Everton Ladies' attempted more entries on the left but it had the least depth and success % among all 3 zones.</p>
+				<img src="./entries-into-final-third/right_deep_success.png">
+				<p class="caption">Everton Ladies' attempted more entries on the left but it had the least depth and success % among all 3 zones.</p>
 			</div>
 		</div>
 
@@ -322,20 +352,20 @@
 		</div>
 		<div class="row"> 
 			<div class="floatleft">
-				<img src="./entries-into-final-third/englandvspanama.png" style="width: 95%">
-				<p style="width: 90%;">England made use of their flanks 80% of the time, when they entered into final 3rd. This picture 
+				<img src="./entries-into-final-third/englandvspanama.png" >
+				<p class="caption">England made use of their flanks 80% of the time, when they entered into final 3rd. This picture 
 					illustrated below (report from TotalFootballAnalysis) clealy supports the data.
 				</p>
 			</div>
 			<div class="floatright">
 
-				<img src="./entries-into-final-third/panamavsengland.png" style="width:95%">
-				<p style="width: 95%;">Panama's picture tells exactly you what it is to play against a 3-5-2 setup. England's packed midfield
+				<img src="./entries-into-final-third/panamavsengland.png" >
+				<p class="caption">Panama's picture tells exactly you what it is to play against a 3-5-2 setup. England's packed midfield
 					did a good job in keeping Panama at bay. 
 				</p>
 			</div>
-			<img src="./entries-into-final-third/tfa_englandvspanama.png" style="width: 70%; display: block;">
-			<center><p style="width: 95%;"> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-england-vs-panama" target="_blank">
+			<img src="./entries-into-final-third/tfa_englandvspanama.png" >
+			<center><p class="caption""> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-england-vs-panama" target="_blank">
 			Pic Taken from Match Report by Total Football Analysis</a></p></center>		</div>
 	</div>	
 
@@ -348,23 +378,23 @@
 			 87% of the Morocco's progression towards the goal took place on the wings, with more success on the left. 
 		</div>
 		<div class="row"> 
-			<img src="./entries-into-final-third/spainvsmorocco.png" style="width: 60%; display: block;">
+			<img src="./entries-into-final-third/spainvsmorocco.png" >
 
 			<div class="floatleft">
-				<img src="./entries-into-final-third/tfa_spainvsmorocco.png" style="width: 95%">
-				<p style="width: 90%;">Morocco defenders preferring to initiate sequences on the flanks.
+				<img src="./entries-into-final-third/tfa_spainvsmorocco.png">
+				<p class="caption">Morocco defenders preferring to initiate sequences on the flanks.
 				</p>
 			</div>
 			<div class="floatright">
 
-				<img src="./entries-into-final-third/tfa_spainvsmorocco2.png" style="width:95%">
-				<p> style="width: 90%;"Hakim Ziyech and Achraf Hakimi had the best chemistry. Their linkups helped Morocco
+				<img src="./entries-into-final-third/tfa_spainvsmorocco2.png" >
+				<p class="caption"> "Hakim Ziyech and Achraf Hakimi had the best combo play. Their linkups helped Morocco
 					achieve more success on the LW. Though the RW group received the ball more often than LW
 					yet they produced a output of lesser quality.
 				</p>
 			</div>
 		</div>
-		<center><p> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-spain-vs-morocco-tactical-analysis" target="_blank">
+		<center><p class="caption"> <a href="https://totalfootballanalysis.com/match-analysis/fifa-world-cup-2018-spain-vs-morocco-tactical-analysis" target="_blank">
 			Pic Taken from Match Report by Total Football Analysis</a></p></center>		
 		</div>
 
@@ -380,7 +410,7 @@
 				took place in the Left Wing.
 		</div>
 		<div class="row"> 
-			<img src="./entries-into-final-third/portugal.png" style="width: 60%;display: block;">
+			<img src="./entries-into-final-third/portugal.png" >
 		</div>
 
 	</div>	
@@ -401,7 +431,7 @@
 				account for high stats on the right.
 		</div>
 		<div class="row"> 
-			<img src="./entries-into-final-third/griezz.png" style="width: 60%;display: block;">
+			<img src="./entries-into-final-third/griezz.png" >
 		</div>
 		<h5 class="title"><u>Player Analysis (2/2):</u></h5>
 
@@ -411,7 +441,7 @@
 				But interestingly he contributed equal amount on both the wings.
 		</div>
 		<div class="row"> 
-			<img src="./entries-into-final-third/marcusrashord.png" style="width: 60%;display: block;">
+			<img src="./entries-into-final-third/marcusrashord.png" >
 		</div>
 			<hr id="rshinyapp">
 		<h4 class="title">R Shiny Application:</h4>
@@ -426,7 +456,7 @@ library(shiny)<br>
 # Use runGitHub to soft download the app and run it in your local computer.<br>
 shiny::runGitHub("entries-into-final-third", "npranav10")
 		</div>
-		<img src="./entries-into-final-third/rshinyapp.png" style="width: 100%;display: block;">
+		<img src="./entries-into-final-third/rshinyapp.png" >
 	</div>	
 
 
@@ -486,7 +516,7 @@ shiny::runGitHub("entries-into-final-third", "npranav10")
 			<p>This function plots the data and also returns a dataframe. Let's examine what's in it.</p>
 	<div class="floatleft60">
 
-			<table id="t01" style="width:100%" align="center">
+			<table id="t01" >
 				<tr>
 					<th>Metric</th>
 					<th>Value</th>
@@ -520,7 +550,7 @@ shiny::runGitHub("entries-into-final-third", "npranav10")
 		</div>
 		<div class="floatright40">
 			<br>
-			<img src="./entries-into-final-third/proof2.png" style="width:95%; float: right; ">
+			<img src="./entries-into-final-third/proof2.png" >
 			<div class="content">This dataframe corresponds to the Belgium's entries-into-final-third vs France.</div>
 		</div>
 	
