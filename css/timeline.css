@@ -177,6 +177,16 @@
     padding-bottom: 10px;
 }
 
+.timelinecontent_old h4 {
+    padding-bottom: 10px;
+    color: #7e7777 !important;
+}
+
+.timelinecontent_old h3 {
+    padding-bottom: 10px;
+}
+
+
 .timeline li {
     font-size: 16px;
     margin-left: -5px;
